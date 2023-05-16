@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_country_state_district_corporation_tree" model="ir.ui.view">
+            <field name="name">res.country.state.district.corporation.tree</field>
+            <field name="model">res.country.state.district.corporation</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="district_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_country_state_district_corporation_form" model="ir.ui.view">
+            <field name="name">res.country.state.district.corporation.form</field>
+            <field name="model">res.country.state.district.corporation</field>
+            <field name="arch" type="xml">
+                <form string="Corporation">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="district_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
