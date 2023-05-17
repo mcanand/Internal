@@ -7,4 +7,4 @@ class ExternalWebLinks(models.Model):
 
     name = fields.Char(string='Name', required=True)
     link = fields.Char(string='Link', required=True)
-    product_category = fields.Many2one('link.categories', string='Link Category', required=True)
+    link_category_id = fields.Many2one('link.categories', string='Link Category', required=True)

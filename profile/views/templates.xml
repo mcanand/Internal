@@ -4,24 +4,60 @@
         <t t-call="portal.frontend_layout">
             <div class="container pt-5 pb-5">
                 <div class="row">
-                    <div class="col-12">
-                        <a href="/my/home" class="btn btn-primary float-end">
-                            <i class="fa fa-home"/>
+                    <div class="col-6 d-inline-flex">
+                        <a href="/my/home" class="btn btn-primary">
+                            <i class="fa fa-arrow-left"/>
+                        </a>
+                        <a class="btn">
+                            <t t-esc="name"/>
                         </a>
                     </div>
+                    <div class="col-6 d-inline">
+                        <form t-att-action="'/my/dashboard/%s' %category_id" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="row">
+                                <div class="col-11 p-0">
+                                    <input name="search" type="text" class="form-control" placeholder="Search..."
+                                           t-att-value="search if search else ''"/>
+                                </div>
+                                <div class="col-1 p-0">
+                                    <button type="submit"
+                                            t-attf-class="btn btn-primary w-100 {{ 'active' if category_id == 0 else '' }}"
+                                            aria-label="Search"
+                                            title="Search">
+                                        <i class="fa fa-search"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-3">
                         <t t-foreach="categories" t-as="cat">
-                            <a class="btn btn-primary w-100 mt-2" t-att-href="'/my/dashboard/%s' %cat.id"><t t-esc="cat.name"/></a>
+                            <a t-attf-class="btn btn-primary w-100 mt-2 {{ 'active' if category_id == cat.id else '' }}"
+                               t-att-href="'/my/dashboard/%s' %cat.id">
+                                <t t-esc="cat.name.title()"/>
+                            </a>
                         </t>
                     </div>
-                    <div class="col-8">
-                        <div>
-                            <t t-out="0"/>
-                        </div>
+                    <div class="col-9 p-0" style="height:70vh;overflow-y:scroll;overflow-x:hidden;">
+                        <t t-out="0"/>
                     </div>
                 </div>
+            </div>
+        </t>
+    </template>
+    <template id="external_links">
+        <t t-call="profile.portal_my_dashboard">
+            <div class="row">
+                <t t-foreach="links" t-as="link">
+                    <div class="col-3 mt-2">
+                        <a t-att-href="link.link" target="_blank" class="btn btn-primary p-2 w-100 h-100">
+                            <t t-esc="link.name.title()"/>
+                        </a>
+                    </div>
+                </t>
             </div>
         </t>
     </template>

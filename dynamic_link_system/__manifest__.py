@@ -9,6 +9,7 @@
         'security/ir.model.access.csv',
         'views/link_categ.xml',
         'views/external_link_system.xml',
+        'views/res_partner.xml',
     ],
     'installable': True,
     'application': True,

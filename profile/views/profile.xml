@@ -6,12 +6,11 @@
             <div class="container pt-5 pb-5">
                 <style>
                     main{
-                        background-color:white;
+                    background-color:white;
                     }
                     .oe_avatar{
                     width:100px;
                     height:100px;
-                    border-radius:50%;
                     }
                 </style>
                 <div class="row">
@@ -55,8 +54,9 @@
                             </div>
                             <div class="col-6">
                                 <a role="button" href="/my/account" class="btn btn-primary mt-3 w-100">
-                                        <i class="fa fa-pencil"/> Edit Details
-                                    </a>
+                                    <i class="fa fa-pencil"/>
+                                    Edit Details
+                                </a>
                             </div>
                             <div class="col-6">
                                 <a class="w-100 btn btn-primary mt-3" href="/my/security">
@@ -64,12 +64,23 @@
                                     Edit Security
                                 </a>
                             </div>
-                            <div class="col-12">
-                                <a class="w-100 btn btn-primary mt-3" href="/my/dashboard">
-                                    <i class="fa fa-dashboard mx-1"/>
-                                    My Dashboard
-                                </a>
-                            </div>
+                            <t t-if="user_id.partner_id.franchise">
+                                <div class="col-12">
+                                    <a class="w-100 btn btn-primary mt-3" href="/my/dashboard">
+                                        <i class="fa fa-dashboard mx-1"/>
+                                        Go To My Space
+                                    </a>
+                                </div>
+                                <div class="col-6 mt-3 mx-auto">
+                                    <a class="btn w-100">You Are a <b><t t-esc="user_id.partner_id.member_type"/></b> Member.</a>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <a class="btn btn-primary w-100" href="/contactus">
+                                        <i class="fa fa-arrow-up mx-1"/>
+                                        Upgrade Now
+                                    </a>
+                                </div>
+                            </t>
                         </div>
                     </div>
                     <div class="col-6">
