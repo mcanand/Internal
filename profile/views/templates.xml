@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_my_dashboard">
+        <t t-call="portal.frontend_layout">
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="/my/home" class="btn btn-primary float-end">
+                            <i class="fa fa-home"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <t t-foreach="categories" t-as="cat">
+                            <a class="btn btn-primary w-100 mt-2" t-att-href="'/my/dashboard/%s' %cat.id"><t t-esc="cat.name"/></a>
+                        </t>
+                    </div>
+                    <div class="col-8">
+                        <div>
+                            <t t-out="0"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -6,9 +6,10 @@
     'category': '',
     'author': 'ANAND MC',
     'summary': 'Profile',
-    'depends': ['portal'],
+    'depends': ['portal', 'dynamic_link_system'],
     'data': [
         'views/profile.xml',
+        'views/templates.xml',
     ],
     'installable': True,
     'application': True,
