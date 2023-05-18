@@ -14,7 +14,7 @@
                     }
                 </style>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="row">
                             <div class="col-3">
                                 <img src="/profile/static/src/image/img.jpeg" class="img-fluid oe_avatar"/>
@@ -52,13 +52,13 @@
                                     <br/>
                                 </t>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <a role="button" href="/my/account" class="btn btn-primary mt-3 w-100">
                                     <i class="fa fa-pencil"/>
                                     Edit Details
                                 </a>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <a class="w-100 btn btn-primary mt-3" href="/my/security">
                                     <i class="fa fa-lock mx-1"/>
                                     Edit Security
@@ -71,11 +71,11 @@
                                         Go To My Space
                                     </a>
                                 </div>
-                                <div class="col-6 mt-3 mx-auto">
+                                <div class="col-md-6 mt-3 mx-auto">
                                     <a class="btn w-100">You Are a <b><t t-esc="user_id.partner_id.member_type"/></b> Member.</a>
                                 </div>
-                                <div class="col-6 mt-3">
-                                    <a class="btn btn-primary w-100" href="/contactus">
+                                <div class="col-md-6 mt-3">
+                                    <a class="btn btn-primary w-100" href="/my/membership">
                                         <i class="fa fa-arrow-up mx-1"/>
                                         Upgrade Now
                                     </a>
@@ -83,7 +83,7 @@
                             </t>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div>
                             <t t-out="0"/>
                         </div>
@@ -117,5 +117,19 @@
             </div>
         </xpath>
     </template>
-
+    <template id="portal_my_membership_upgrade">
+        <t t-call="portal.portal_layout">
+            <div class="row">
+                <h4>Choose One To Upgrade Now</h4>
+                <t t-foreach="types" t-as="type">
+                    <div class="col-6 mt-2">
+                        <a class="btn btn-primary w-100">
+                            <div t-esc="type.name"/>
+                            <div t-esc="type.price_unit"/>
+                        </a>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
 </odoo>

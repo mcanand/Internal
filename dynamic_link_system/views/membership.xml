@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_membership_form" model="ir.ui.view">
+        <field name="name">membership.types.form</field>
+        <field name="model">membership.types</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_show_members"
+                                type="object"
+                                icon="fa-users">
+                            <field string="Members"
+                                    name="members_count"
+                                    widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                        </group>
+                        <group>
+                            <field name="price_unit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="Available Links">
+                            <group>
+                                <field name="external_web_lik_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_membership_tree" model="ir.ui.view">
+        <field name="name">membership.types.tree</field>
+        <field name="model">membership.types</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="price_unit"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="membership_action">
+        <field name="name">Membership Types</field>
+        <field name="res_model">membership.types</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="membership_menu_item"
+              name="Membership Types"
+              parent="dynamic_link_system.external_web_links_menu"
+              action="membership_action"/>
+
+</odoo>

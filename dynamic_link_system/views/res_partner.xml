@@ -9,7 +9,8 @@
             <field name="company_type" position="after">
                 <group>
                     <field name="franchise" widget="boolean_toggle"/>
-                    <field name="member_type" options="{'horizontal': true}" widget="radio"/>
+                    <field name="membership_type_id" attrs="{'required': [('franchise', '=', True)],'invisible':[('franchise','!=',True)]}"
+                           options="{'no_create': True}"/>
                 </group>
             </field>
         </field>
