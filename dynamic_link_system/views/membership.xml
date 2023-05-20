@@ -12,8 +12,8 @@
                                 type="object"
                                 icon="fa-users">
                             <field string="Members"
-                                    name="members_count"
-                                    widget="statinfo"/>
+                                   name="members_count"
+                                   widget="statinfo"/>
                         </button>
                     </div>
                     <group>
@@ -26,9 +26,14 @@
                         </group>
                     </group>
                     <notebook>
-                        <page name="Available Links">
+                        <page name="Configure">
                             <group>
-                                <field name="external_web_lik_ids" widget="many2many_tags"/>
+                                <group>
+                                    <field name="external_web_link_ids" widget="many2many_tags"/>
+                                </group>
+                                <group>
+                                    <field name="location_category_ids" widget="many2many_tags"/>
+                                </group>
                             </group>
                         </page>
                     </notebook>
@@ -54,8 +59,10 @@
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem id="membership_menu_item"
-              name="Membership Types"
-              parent="dynamic_link_system.external_web_links_menu"
-              action="membership_action"/>
+              name="Membership"
+              parent="dynamic_link_system.external_web_links_menu">
+
+        <menuitem id="membership_types_menu_item" name="Membership Types" action="membership_action"/>
+    </menuitem>
 
 </odoo>

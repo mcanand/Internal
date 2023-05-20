@@ -55,3 +55,8 @@ class MyDashboard(CustomerPortal):
 
     def get_member_ship_types(self):
         return request.env['membership.types'].search([])
+
+    @http.route(['/my/location/details'], type='http', auth='user', website=True,
+                methods=['GET', 'POST'])
+    def render_my_location_details(self, **kw):
+        return request.render('profile.my_location_details')

@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_link_categories,link.categories,model_link_categories,,1,1,1,1
 access_external_web_links,external.web.links,model_external_web_links,,1,1,1,1
 access_membership_types,membership.types,model_membership_types,,1,1,1,1
+access_location_categories,location.categories,model_location_categories,,1,1,1,1

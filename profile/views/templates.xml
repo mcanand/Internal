@@ -61,4 +61,17 @@
             </div>
         </t>
     </template>
+    <template id="my_location_details">
+        <t t-call="portal.frontend_layout">
+            <div class="container">
+                <div class="row pt-5 pb-5">
+                    <div class="col-md-6 d-inline-flex">
+                        <a href="/my/home" class="btn btn-primary">
+                            <i class="fa fa-arrow-left"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
 </odoo>

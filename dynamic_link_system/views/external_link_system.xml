@@ -42,13 +42,14 @@
         </record>
 
 
-        <menuitem id="external_web_links_menu" name="Dynamic Link Systems"/>
-        <menuitem id="external_web_links_menu_manage" name="External Web Links" parent="external_web_links_menu"
-                  action="external_web_links_action"/>
-        <menuitem id="link_category_menu_manage" name="Link Category" parent="external_web_links_menu"
-                  action="category_link_action"/>
-
-
+        <menuitem id="external_web_links_menu" name="Dynamic Link Systems">
+            <menuitem id="external_web_links_menu_manage" name="External Links"
+                      >
+                <menuitem id="web_links_menu_item" name="Web Links" action="external_web_links_action"/>
+                <menuitem id="link_category_menu_manage" name="Link Categories"
+                          action="category_link_action"/>
+            </menuitem>
+        </menuitem>
     </data>
 </odoo>
 

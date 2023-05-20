@@ -52,6 +52,12 @@
                                     <br/>
                                 </t>
                             </div>
+                            <div class="col-12">
+                                <a role="button" href="/my/location/details" class="btn btn-primary mt-3 w-100">
+                                    <i class="fa fa-map-marker "/>
+                                    Explore My Location
+                                </a>
+                            </div>
                             <div class="col-md-6">
                                 <a role="button" href="/my/account" class="btn btn-primary mt-3 w-100">
                                     <i class="fa fa-pencil"/>

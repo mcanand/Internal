@@ -11,6 +11,7 @@
         'views/external_link_system.xml',
         'views/res_partner.xml',
         'views/membership.xml',
+        'views/location_categs.xml',
     ],
     'installable': True,
     'application': True,

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_location_category_form" model="ir.ui.view">
+        <field name="name">location.categories.form</field>
+        <field name="model">location.categories</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+<!--                    <div class="oe_button_box" name="button_box">-->
+<!--                        <button name="action_show_members"-->
+<!--                                type="object"-->
+<!--                                icon="fa-users">-->
+<!--                            <field string="Members"-->
+<!--                                    name="members_count"-->
+<!--                                    widget="statinfo"/>-->
+<!--                        </button>-->
+<!--                    </div>-->
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_location_category_tree" model="ir.ui.view">
+        <field name="name">location.categories.tree</field>
+        <field name="model">location.categories</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="location_category_action">
+        <field name="name">location category</field>
+        <field name="res_model">location.categories</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="location_menu_item"
+              name="Location Details"
+              parent="dynamic_link_system.external_web_links_menu"
+              >
+        <menuitem id="location_category_menu_item" name="Location Categories" action="location_category_action"/>
+
+    </menuitem>
+
+</odoo>

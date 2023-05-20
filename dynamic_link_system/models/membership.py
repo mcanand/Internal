@@ -12,13 +12,18 @@ class Membership(models.Model):
                               compute='_compute_price',
                               readonly=False,
                               store=True)
-    external_web_lik_ids = fields.Many2many('external.web.links', string='Web Links')
+    external_web_link_ids = fields.Many2many('external.web.links',
+                                             string='Available Web Links')
+    location_category_ids = fields.Many2many('location.categories',
+                                             string="Available Location "
+                                                    "Categories")
     members_count = fields.Integer(compute='_compute_members_count')
 
     @api.depends('members_count')
     def _compute_members_count(self):
         for rec in self:
-            count = len(self.env['res.partner'].search([('membership_type_id', '=', rec.id)]))
+            count = len(self.env['res.partner'].search(
+                [('membership_type_id', '=', rec.id)]))
             rec.members_count = count
 
     @api.depends('product_id')
@@ -31,8 +36,6 @@ class Membership(models.Model):
         for rec in self:
             if rec.product_id:
                 rec.product_id.write({'lst_price': rec.price_unit})
-            else:
-                raise ValidationError(_('Add a product first'))
 
     def action_show_members(self):
         ctx = dict(
