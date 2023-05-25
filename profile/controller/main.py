@@ -8,7 +8,7 @@ class MyDashboard(CustomerPortal):
                 methods=['GET', 'POST'])
     def render_dash_board(self, **kw):
         user = request.env.user
-        available_links = user.partner_id.membership_type_id.external_web_lik_ids
+        available_links = user.partner_id.membership_type_id.external_web_link_ids
         categories = request.env['link.categories'].sudo().search([])
         if request.httprequest.method == 'POST':
             links = available_links.filtered_domain([('name', 'ilike', kw.get('search'))])
